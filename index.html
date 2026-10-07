@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio ของ นางสาว ชลิตา ชุมถนอม — Game & Animation Designer">
+  <title>Chalita Chumthanom | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --pink:#d9579a;
+      --pink2:#ef82bb;
+      --pink3:#3a1b35;
+      --purple:#9b72d0;
+      --purple2:#7350a8;
+      --purple3:#281d3d;
+      --ink:#eee5f5;
+      --muted:#b8a9c4;
+      --cream:#100c18;
+      --white:#fffaff;
+      --line:rgba(191,128,225,.18);
+      --shadow:0 20px 55px rgba(0,0,0,.42);
+      --radius:28px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Kanit",sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 12% 10%, rgba(153,74,156,.20), transparent 27%),
+        radial-gradient(circle at 88% 18%, rgba(103,64,166,.22), transparent 30%),
+        radial-gradient(circle at 50% 70%, rgba(211,64,137,.08), transparent 35%),
+        linear-gradient(180deg,#0b0811 0%,#120b1b 48%,#0e0a16 100%);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    button{font:inherit}
+
+    /* floating decorative shapes */
+    .blob{position:fixed;z-index:-1;filter:blur(1px);pointer-events:none}
+    .blob.one{width:180px;height:180px;border-radius:48% 52% 62% 38%;background:rgba(164,55,126,.18);left:-90px;top:18%}
+    .blob.two{width:220px;height:220px;border-radius:55% 45% 35% 65%;background:rgba(111,72,180,.18);right:-100px;top:55%}
+    .spark{position:absolute;color:#fff;font-size:26px;opacity:.7}
+    .spark.s1{left:6%;top:15%}.spark.s2{right:9%;top:28%;font-size:18px}.spark.s3{right:4%;bottom:15%}
+
+    .container{width:min(1180px,92%);margin:auto}
+
+    /* NAV */
+    nav{
+      position:fixed;top:18px;left:50%;transform:translateX(-50%);
+      width:min(1050px,92%);z-index:20;
+      background:rgba(22,15,31,.86);
+      backdrop-filter:blur(18px);
+      border:1px solid rgba(220,174,242,.14);
+      box-shadow:0 12px 35px rgba(0,0,0,.38);
+      border-radius:999px;
+      padding:10px 12px;
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px}
+    .brand-mark{
+      width:40px;height:40px;border-radius:50%;
+      display:grid;place-items:center;color:white;
+      background:radial-gradient(circle at 35% 30%,#ef8bc0,#8d4cc0 65%,#321744);
+      box-shadow:0 0 22px rgba(190,91,191,.32);
+    }
+    .nav-links{display:flex;gap:5px;align-items:center}
+    .nav-links a{
+      padding:9px 15px;border-radius:999px;font-size:14px;color:#b8a5c0;
+      transition:.25s;
+    }
+    .nav-links a:hover,.nav-links a.active{background:#3b203f;color:#ef8bc0}
+    .nav-btn{
+      padding:10px 17px;border-radius:999px;color:white;
+      background:linear-gradient(135deg,var(--pink),var(--purple));
+      font-size:14px;font-weight:500;
+    }
+
+    /* HERO */
+    .hero{min-height:760px;padding:155px 0 90px;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 14px;border-radius:999px;background:#20152b;
+      color:#e99ac4;font-size:13px;box-shadow:var(--shadow);
+      border:1px solid rgba(222,137,194,.14);
+      margin-bottom:22px;
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--pink)}
+    h1{
+      font-family:"Playfair Display","Kanit",serif;
+      font-size:clamp(50px,7vw,88px);line-height:.98;
+      color:#f1e7f5;letter-spacing:-2px;margin-bottom:18px;
+      text-shadow:0 0 28px rgba(206,116,200,.12);
+    }
+    h1 span{color:var(--pink)}
+    .hero h2{font-size:24px;font-weight:500;color:#c99be9;margin-bottom:15px}
+    .hero p{font-size:17px;line-height:1.9;color:var(--muted);max-width:650px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:13px 21px;border-radius:999px;font-weight:500;
+      transition:.25s;border:1px solid transparent;
+    }
+    .btn.primary{color:#fff;background:linear-gradient(135deg,var(--pink),var(--purple));box-shadow:0 12px 25px rgba(184,112,165,.25)}
+    .btn.secondary{background:#1b1325;border-color:#4a3156;color:#d3bfdc}
+    .btn:hover{transform:translateY(-3px)}
+
+    .hero-card{
+      position:relative;min-height:500px;border-radius:45px;
+      background:
+        radial-gradient(circle at 70% 20%,rgba(229,137,193,.28),transparent 25%),
+        radial-gradient(circle at 25% 80%,rgba(118,83,190,.35),transparent 32%),
+        linear-gradient(145deg,#25142c,#151022 65%,#281738);
+      box-shadow:var(--shadow);overflow:hidden;
+      border:10px solid rgba(255,255,255,.07);
+    }
+    .hero-card:before{
+      content:"";position:absolute;width:360px;height:360px;border-radius:50%;
+      background:rgba(231,143,204,.10);right:-100px;top:-90px;
+    }
+    .portrait{
+      position:absolute;inset:34px;
+      border-radius:32px;background:
+        linear-gradient(145deg,rgba(255,255,255,.55),rgba(255,255,255,.08));
+      border:1px solid rgba(238,191,226,.12);
+      display:flex;align-items:flex-end;justify-content:center;overflow:hidden;
+    }
+    .portrait-placeholder{
+      width:76%;height:76%;border-radius:48% 48% 10% 10%;
+      background:linear-gradient(180deg,#4b284d,#211a39);
+      position:relative;
+    }
+    .portrait-placeholder:before{
+      content:"";position:absolute;width:45%;height:38%;
+      border-radius:50%;background:#ffd8dc;left:27%;top:8%;
+      box-shadow:0 85px 0 8px #8c5aa7;
+    }
+    .portrait-placeholder:after{
+      content:"";position:absolute;width:82%;height:52%;
+      border-radius:50% 50% 15% 15%;background:linear-gradient(135deg,#c37aa9,#7550a4);
+      left:9%;top:2%;z-index:-1;
+    }
+    .hero-tag{
+      position:absolute;right:22px;bottom:24px;
+      background:rgba(26,17,35,.92);padding:14px 18px;border-radius:18px;
+      border:1px solid rgba(234,173,218,.12);
+      box-shadow:0 10px 25px rgba(0,0,0,.35);
+      font-size:13px;color:#bca8c7;
+    }
+    .hero-tag b{display:block;color:#b65086;font-size:18px}
+
+    /* sections */
+    section{padding:90px 0}
+    .section-head{text-align:center;margin-bottom:42px}
+    .section-kicker{font-size:13px;color:#dc75ac;letter-spacing:2px;text-transform:uppercase}
+    .section-title{font-family:"Playfair Display","Kanit",serif;font-size:44px;color:#eee2f4;margin:7px 0}
+    .section-desc{color:var(--muted);max-width:650px;margin:auto;line-height:1.8}
+
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:25px}
+    .glass{
+      background:rgba(27,18,38,.82);border:1px solid rgba(225,183,238,.10);
+      border-radius:var(--radius);box-shadow:var(--shadow);padding:30px;
+    }
+    .profile-list{display:grid;gap:13px;margin-top:18px}
+    .profile-row{display:flex;gap:15px;align-items:flex-start;padding:13px 0;border-bottom:1px dashed #eaddec}
+    .profile-row:last-child{border-bottom:0}
+    .icon{
+      flex:0 0 40px;width:40px;height:40px;border-radius:13px;
+      display:grid;place-items:center;background:var(--purple3);color:var(--purple);font-size:18px
+    }
+    .profile-row small{display:block;color:#a18ca9;font-size:12px}
+    .profile-row strong{font-weight:500;color:#e1d2e8}
+    .about-text{font-size:17px;line-height:1.95;color:#b7a7c0}
+    .mini-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:25px}
+    .mini{padding:20px;border-radius:20px;background:linear-gradient(145deg,#25172d,#1a1325);border:1px solid #3d2847}
+    .mini b{font-size:27px;color:var(--purple);display:block}.mini span{font-size:13px;color:#927b99}
+
+    /* skills */
+    .skill-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
+    .skill{
+      text-align:center;padding:25px 12px;border-radius:22px;background:#191221;
+      box-shadow:var(--shadow);border:1px solid #34243e;transition:.25s
+    }
+    .skill:hover{transform:translateY(-7px)}
+    .skill .skill-icon{
+      width:55px;height:55px;border-radius:18px;margin:0 auto 13px;
+      display:grid;place-items:center;font-size:24px;font-weight:700;
+      background:linear-gradient(135deg,var(--pink3),var(--purple3));color:var(--purple)
+    }
+    .skill b{font-size:16px}.skill small{display:block;color:#a99ab2;margin-top:4px}
+
+    .ability-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .ability{padding:27px;border-radius:25px;background:linear-gradient(145deg,#21152b,#17101f);border:1px solid #392744}
+    .ability h3{font-size:21px;color:#d9b0e8;margin-bottom:8px}.ability p{color:#a99bb1;line-height:1.75}
+
+    /* portfolio */
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .project{overflow:hidden;border-radius:26px;background:#19121f;box-shadow:var(--shadow);border:1px solid #35253e;transition:.25s}
+    .project:hover{transform:translateY(-6px)}
+    .project-cover{
+      height:220px;display:grid;place-items:center;position:relative;overflow:hidden;
+      background:linear-gradient(135deg,#4a2448,#30205b);
+    }
+    .project-cover:nth-child(2){background:linear-gradient(135deg,#e6d5fb,#ffc9df)}
+    .project-cover:nth-child(3){background:linear-gradient(135deg,#ffc8df,#cbb8f4)}
+    .project-art{font-size:68px;filter:drop-shadow(0 12px 10px rgba(91,61,109,.15))}
+    .project-cover span{position:absolute;left:15px;top:15px;background:rgba(255,255,255,.78);padding:6px 10px;border-radius:999px;font-size:11px;color:#805f8a}
+    .project-body{padding:20px}.project-body h3{font-size:20px;color:#e2cce9}.project-body p{font-size:13px;color:#a394ac;line-height:1.7;margin-top:5px}
+
+    /* contact */
+    .contact{
+      background:
+        radial-gradient(circle at 50% 0%,rgba(221,116,181,.18),transparent 35%),
+        linear-gradient(135deg,#2b1730,#20183d);
+      border-radius:38px;padding:55px 35px;text-align:center;
+      border:1px solid rgba(229,171,222,.10);
+      box-shadow:var(--shadow);position:relative;overflow:hidden;
+    }
+    .contact:before,.contact:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.3)}
+    .contact:before{width:200px;height:200px;left:-90px;bottom:-90px}.contact:after{width:250px;height:250px;right:-120px;top:-130px}
+    .contact > *{position:relative;z-index:1}
+    .contact h2{font-family:"Playfair Display","Kanit",serif;font-size:45px;color:#f0dfef}
+    .contact p{color:#806a8c;margin:8px auto 22px;max-width:580px}
+    .contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+
+    footer{padding:35px 0 45px;text-align:center;color:#85758e;font-size:13px}
+    .heart{color:#e678a7}
+
+
+    /* Witchy atmosphere */
+    .hero:before{
+      content:"☾";
+      position:absolute;right:7%;top:120px;
+      color:#e9c4ef;font-size:70px;opacity:.18;
+      text-shadow:0 0 30px #c96bb1;
+      transform:rotate(-18deg);
+    }
+    .hero:after{
+      content:"✦  ·  ✧  ·  ✦  ·  ✧";
+      position:absolute;left:4%;bottom:80px;
+      color:#b78bd0;font-size:14px;letter-spacing:7px;opacity:.22;
+    }
+    .section-head:after{
+      content:"─────  ✦  ─────";
+      display:block;color:#8f5fae;opacity:.5;margin-top:12px;font-size:12px;
+    }
+    .glass h2,.ability h3,.project-body h3{font-family:"Playfair Display","Kanit",serif}
+
+    @media(max-width:900px){
+      .hero-grid,.about-grid{grid-template-columns:1fr}
+      .hero{padding-top:130px}.hero-card{min-height:420px;max-width:650px;margin:auto}
+      .skill-grid{grid-template-columns:repeat(3,1fr)}
+      .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+      .ability-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:650px){
+      nav{top:8px}.nav-links{display:none}.nav-btn{display:none}
+      .hero{padding-top:110px}.hero-card{min-height:350px}
+      h1{font-size:54px}.section-title{font-size:37px}
+      .skill-grid,.portfolio-grid,.ability-grid{grid-template-columns:1fr 1fr}
+      .mini-cards{grid-template-columns:1fr}
+      section{padding:65px 0}
+    }
+    @media(max-width:430px){
+      .skill-grid,.portfolio-grid,.ability-grid{grid-template-columns:1fr}
+      .hero-card{min-height:330px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+
+  <nav>
+    <div class="nav-inner container">
+      <a class="brand" href="#home"><span class="brand-mark">C</span><span>CHALITA</span></a>
+      <div class="nav-links">
+        <a href="#home" class="active">หน้าแรก</a>
+        <a href="#about">เกี่ยวกับฉัน</a>
+        <a href="#skills">ทักษะ</a>
+        <a href="#portfolio">ผลงาน</a>
+        <a href="#contact">ติดต่อ</a>
+      </div>
+      <a class="nav-btn" href="#contact">Let's Connect ♡</a>
+    </div>
+  </nav>
+
+  <main id="home">
+    <section class="hero">
+      <span class="spark s1">✦</span><span class="spark s2">✧</span><span class="spark s3">♡</span>
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> WITCHY CREATIVE • GAME & ANIMATION</div>
+          <h1>Chalita<br><span>Portfolio.</span></h1>
+          <h2>Game • Animation • 3D • Digital Magic ✦</h2>
+          <p>
+            สวัสดีค่ะ ฉันชื่อ <b>ชลิตา ชุมถนอม</b> นักศึกษาสาขาเกมและแอนิเมชัน
+            ผู้สนใจงาน 3D, Animation, Game Design และการสร้างสรรค์สื่อดิจิทัล
+            พร้อมเรียนรู้และพัฒนาทักษะใหม่ ๆ อยู่เสมอ
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#portfolio">ดูผลงานของฉัน →</a>
+            <a class="btn secondary" href="#about">เกี่ยวกับฉัน</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="portrait">
+            <!-- เปลี่ยนส่วนนี้เป็นรูปโปรไฟล์ของคุณได้ -->
+            <div class="portrait-placeholder"></div>
+          </div>
+          <div class="hero-tag"><b>21 years old</b>Game & Animation Student</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">ABOUT ME</div>
+          <div class="section-title">About Me ♡</div>
+          <p class="section-desc">ข้อมูลส่วนตัวและเส้นทางการเรียนรู้ของฉัน</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="glass">
+            <h2>ข้อมูลส่วนตัว</h2>
+            <div class="profile-list">
+              <div class="profile-row"><div class="icon">♡</div><div><small>ชื่อ</small><strong>นางสาว ชลิตา ชุมถนอม</strong></div></div>
+              <div class="profile-row"><div class="icon">21</div><div><small>อายุ</small><strong>21 ปี</strong></div></div>
+              <div class="profile-row"><div class="icon">✦</div><div><small>วันเกิด</small><strong>14 กุมภาพันธ์ 2548</strong></div></div>
+              <div class="profile-row"><div class="icon">⌂</div><div><small>การศึกษา</small><strong>มหาวิทยาลัยเทคโนโลยีราชมงคลรัตนโกสินทร์</strong></div></div>
+              <div class="profile-row"><div class="icon">◈</div><div><small>คณะ / สาขา</small><strong>คณะสถาปัตยกรรมและการออกแบบ<br>เอกเกมและแอนิเมชัน</strong></div></div>
+            </div>
+          </div>
+
+          <div class="glass">
+            <h2>สิ่งที่ฉันสนใจ</h2>
+            <p class="about-text">
+              ฉันชอบการสร้างสรรค์โลกและเรื่องราวผ่านภาพเคลื่อนไหว
+              สนใจการออกแบบตัวละคร งาน 3D และการพัฒนาเกม
+              โดยต้องการนำความคิดสร้างสรรค์มาผสมกับทักษะด้านเทคโนโลยี
+              เพื่อสร้างผลงานที่มีเอกลักษณ์และสื่อสารกับผู้ชมได้
+            </p>
+            <div class="mini-cards">
+              <div class="mini"><b>3D</b><span>Modeling & Animation</span></div>
+              <div class="mini"><b>Game</b><span>Game & Interactive Media</span></div>
+              <div class="mini"><b>Live</b><span>Streamer & Content Creator</span></div>
+              <div class="mini"><b>Art</b><span>Digital Creative Work</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">MY SKILLS</div>
+          <div class="section-title">Tools of My Craft</div>
+          <p class="section-desc">โปรแกรมที่ใช้ในการเรียนและสร้างสรรค์ผลงาน</p>
+        </div>
+
+        <div class="skill-grid">
+          <div class="skill"><div class="skill-icon">iB</div><b>ibisPaint</b><small>Digital Art</small></div>
+          <div class="skill"><div class="skill-icon">U</div><b>Unity</b><small>Game Engine</small></div>
+          <div class="skill"><div class="skill-icon">B</div><b>Blender</b><small>3D / Animation</small></div>
+          <div class="skill"><div class="skill-icon">M</div><b>Maya</b><small>3D / Animation</small></div>
+          <div class="skill"><div class="skill-icon">O</div><b>OBS</b><small>Streaming</small></div>
+          <div class="skill"><div class="skill-icon">C</div><b>CapCut</b><small>Video Editing</small></div>
+        </div>
+
+        <div class="section-head" style="margin-top:80px">
+          <div class="section-kicker">ABILITIES</div>
+          <div class="section-title">My Magical Skills</div>
+        </div>
+
+        <div class="ability-grid">
+          <div class="ability"><h3>🎬 Animation</h3><p>สร้างและปรับแอนิเมชันสำหรับตัวละครและวัตถุ 3D พร้อมจัดจังหวะการเคลื่อนไหวให้เหมาะกับงาน</p></div>
+          <div class="ability"><h3>✂️ Video Editing</h3><p>ตัดต่อวิดีโอ จัดลำดับภาพ ใส่เอฟเฟกต์และเสียง เพื่อเล่าเรื่องให้น่าสนใจ</p></div>
+          <div class="ability"><h3>🧊 3D Modeling</h3><p>ปั้นและจัดเตรียมโมเดล 3D สำหรับงานเกม แอนิเมชัน และสื่อดิจิทัล</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">MY WORK</div>
+          <div class="section-title">My Spellbook of Works</div>
+          <p class="section-desc">พื้นที่สำหรับใส่ผลงานเกม แอนิเมชัน 3D และงานสร้างสรรค์ของฉัน</p>
+        </div>
+
+        <div class="portfolio-grid">
+          <article class="project">
+            <div class="project-cover"><span>3D ANIMATION</span><div class="project-art">🎬</div></div>
+            <div class="project-body"><h3>3D Animation Project</h3><p>ผลงานแอนิเมชัน 3 มิติ / สามารถเปลี่ยนเป็นภาพผลงานจริงได้</p></div>
+          </article>
+          <article class="project">
+            <div class="project-cover"><span>GAME</span><div class="project-art">🎮</div></div>
+            <div class="project-body"><h3>Game Design</h3><p>แนวคิดเกม การออกแบบโลก ตัวละคร และประสบการณ์ของผู้เล่น</p></div>
+          </article>
+          <article class="project">
+            <div class="project-cover"><span>3D MODEL</span><div class="project-art">🧊</div></div>
+            <div class="project-body"><h3>3D Modeling</h3><p>ผลงานการปั้นโมเดล 3D และการเตรียมโมเดลสำหรับงานแอนิเมชัน</p></div>
+          </article>
+          <article class="project">
+            <div class="project-cover"><span>VIDEO</span><div class="project-art">✂️</div></div>
+            <div class="project-body"><h3>Video Editing</h3><p>ผลงานตัดต่อวิดีโอ คอนเทนต์ และสื่อสำหรับออนไลน์</p></div>
+          </article>
+          <article class="project">
+            <div class="project-cover"><span>DIGITAL ART</span><div class="project-art">🎨</div></div>
+            <div class="project-body"><h3>Digital Art</h3><p>ภาพวาดดิจิทัลและการออกแบบคอนเซปต์ตัวละคร</p></div>
+          </article>
+          <article class="project">
+            <div class="project-cover"><span>CONTENT</span><div class="project-art">♡</div></div>
+            <div class="project-body"><h3>Streamer & Creator</h3><p>งานสตรีม เกม คอนเทนต์ และสื่อบันเทิงดิจิทัล</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact">
+          <div class="section-kicker">GET IN TOUCH</div>
+          <h2>Let's create some<br>digital magic together.</h2>
+          <p>หากสนใจร่วมงาน ติดต่อฉันได้ผ่านช่องทางด้านล่าง</p>
+          <div class="contact-links">
+            <!-- แก้ลิงก์ด้านล่างเป็นช่องทางจริงของคุณ -->
+            <a class="btn primary" href="mailto:your-email@example.com">✉ Email</a>
+            <a class="btn secondary" href="#" onclick="return false;">◉ Facebook</a>
+            <a class="btn secondary" href="#" onclick="return false;">▶ YouTube</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Chalita Chumthanom · Made with <span class="heart">♥</span> & creativity
+  </footer>
+
+  <script>
+    // ทำให้เมนูเปลี่ยนสถานะตาม section ที่กำลังดู
+    const sections = document.querySelectorAll("section[id]");
+    const links = document.querySelectorAll(".nav-links a");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          links.forEach(link => link.classList.remove("active"));
+          const active = document.querySelector('.nav-links a[href="#' + entry.target.id + '"]');
+          if(active) active.classList.add("active");
+        }
+      });
+    }, { rootMargin:"-35% 0px -55% 0px" });
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
