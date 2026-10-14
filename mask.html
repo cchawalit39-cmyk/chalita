@@ -12,27 +12,36 @@
   </style>
 </head>
 <body>
-  <a-scene mindar-face="faceOccluder: false" embedded vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-    <a-entity id="face" mindar-face-default-face-occluder></a-entity>
+  <a-scene mindar-face embedded vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+
+    <a-assets>
+      <img id="maskTexture" src="fox.png" crossorigin="anonymous">
+    </a-assets>
+
     <a-camera active="false" position="0 0 0"></a-camera>
+
+    <!--
+      anchorIndex: 168 = จุดกึ่งกลางระหว่างคิ้ว/สันจมูกบน (glabella)
+      เป็นจุดยึดมาตรฐานสำหรับแว่น/หน้ากากที่ต้องคุมตำแหน่งแม่นๆ
+
+      ถ้าหน้ากากยังไม่ตรงตา ปรับได้ที่ 3 ค่านี้บน <a-plane> ด้านล่าง:
+        - position="x y z"  -> y ค่าลบมาก = เลื่อนหน้ากากลงต่ำ, y ค่าบวกมาก = เลื่อนขึ้น
+                               x ค่าบวก = เลื่อนขวา, x ค่าลบ = เลื่อนซ้าย
+        - width / height    -> ตัวเลขมาก = หน้ากากใหญ่ขึ้น, น้อย = เล็กลง
+      ปรับทีละ 0.02-0.05 แล้วเซฟ/รีเฟรชดูผลทีละรอบ
+    -->
+    <a-entity mindar-face-target="anchorIndex: 168">
+      <a-plane
+        src="#maskTexture"
+        transparent="true"
+        material="shader: flat; alphaTest: 0.1"
+        position="0 -0.30 0.02"
+        rotation="0 0 0"
+        width="1.05"
+        height="0.95">
+      </a-plane>
+    </a-entity>
+
   </a-scene>
-
-  <script>
-    document.querySelector('a-scene').addEventListener('arReady', () => {
-      const THREE = AFRAME.THREE;
-
-      // ภาพหน้ากากเทพจิ้งจอก (วางไว้ในโฟลเดอร์เดียวกับไฟล์ HTML นี้ใน repo)
-      const texture = new THREE.TextureLoader().load('fox.png');
-      texture.colorSpace = THREE.SRGBColorSpace;
-
-      // ใช้ face mesh ของ MindAR แล้วเปลี่ยนจากวัสดุบังหน้าเป็น texture หน้ากาก
-      const mesh = document.querySelector('#face').getObject3D('mesh');
-      mesh.material.dispose();
-      mesh.material = new THREE.MeshBasicMaterial({
-        map: texture, transparent: true, opacity: 1, side: THREE.DoubleSide
-      });
-      mesh.frustumCulled = false;
-    });
-  </script>
 </body>
 </html>
